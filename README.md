@@ -1,20 +1,35 @@
-Bookbot 📚
-CLI tool em Python para análise de livros TXT: conta palavras totais e frequência de cada letra alfabética (case-insensitive), ignorando não-letras. Projeto do curso Back-end Developer Path (Python & Go) no boot.dev—primeiro exercício prático de file I/O, dicts e sorting.
+# 📚 Bookbot
 
-[
+CLI tool em **Python** para análise de livros em formato **.txt**.  
+O programa conta o total de palavras e a frequência de cada letra do alfabeto (case-insensitive), ignorando caracteres que não sejam letras.
 
-Funcionalidades
-Contagem de palavras: len(text.split()).
+Projeto desenvolvido no **Back-end Developer Path (Python & Go)** do **boot.dev**, como primeiro exercício prático envolvendo **file I/O**, **dicionários** e **ordenação**.
 
-Frequência de caracteres: Dict com loop manual em text.lower(), só letras A-Z.
+---
 
-Ordenação: Lista de dicts sorted por count descending.
+## 🚀 Funcionalidades
 
-CLI args: python3 main.py <arquivo.txt> com validação e exit(1).
-​
+- **Contagem de palavras**  
+  Utiliza `len(text.split())`.
 
-Demo
-text
+- **Frequência de caracteres**  
+  - Uso de `dict`  
+  - Loop manual em `text.lower()`  
+  - Considera apenas letras de `a` a `z`
+
+- **Ordenação**  
+  - Lista de dicionários  
+  - Ordenada por frequência (`count`) em ordem decrescente
+
+- **Interface de Linha de Comando (CLI)**  
+  ```bash
+  python3 main.py <arquivo.txt>
+
+Validação de argumentos
+
+Encerra com exit(1) em caso de erro
+
+▶️ Demonstração
 $ python3 main.py books/frankenstein.txt
 Found 77986 total words
 e: 44538
@@ -23,44 +38,86 @@ a: 25894
 o: 24494
 i: 23927
 ...
-Testado com Frankenstein (~77k palavras), Moby Dick e Pride & Prejudice.
 
-Instalação
-Clone: git clone https://github.com/lucaslopes-ti/bookbot-python.git
+Testado com:
 
-Baixe livros:
+Frankenstein (~77 mil palavras)
 
-text
+Moby Dick
+
+Pride & Prejudice
+
+🛠️ Instalação
+
+Clone o repositório:
+
+git clone https://github.com/lucaslopes-ti/bookbot-python.git
+cd bookbot-python
+
+Baixe alguns livros para teste:
+
 mkdir books
-curl -o books/frankenstein.txt https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/frankenstein.txt  # Ou do boot.dev
+curl -o books/frankenstein.txt https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/frankenstein.txt
 curl -o books/mobydick.txt https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/mobydick.txt
 curl -o books/prideandprejudice.txt https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/prideandprejudice.txt
-Rode: python3 main.py books/frankenstein.txt
 
-Estrutura
-text
+Execute o programa:
+
+python3 main.py books/frankenstein.txt
+📁 Estrutura do Projeto
 bootdotdev/
-├── main.py      # CLI, file read, calls stats
+├── main.py      # CLI, leitura do arquivo e chamadas das funções
 ├── stats.py     # get_num_words(), get_num_characters(), sort_characters()
-└── books/       # frankenstein.txt, etc.
-Como Fiz
-stats.py: Dict counting em loop (if char in char_counts).
+└── books/       # frankenstein.txt, mobydick.txt, etc.
+🧠 Como Foi Desenvolvido
+stats.py
 
-main.py: sys.argv[1] para filepath, open() relative, print sorted alpha chars.
+Contagem usando dicionário
 
-Sem libs extras—puro Python.
-​
+Loop manual caractere por caractere
 
-Lições Aprendidas
-Manipulação de arquivos e strings.
+Exemplo de lógica:
 
-Dicts/loops para counting.
+if char in char_counts:
+    char_counts[char] += 1
+main.py
 
-sys.argv e error handling CLI.
+Uso de sys.argv[1] para capturar o caminho do arquivo
 
-Sorting com list.sort(key=...).
+Leitura com open() (caminho relativo)
 
-Boot.dev Tests Passados
-text
+Impressão apenas de caracteres alfabéticos ordenados
+
+📌 Sem bibliotecas externas — Python puro.
+
+📘 Lições Aprendidas
+
+Manipulação de arquivos (open, read)
+
+Processamento de strings
+
+Uso de dicionários para contagem
+
+Argumentos de linha de comando com sys.argv
+
+Tratamento básico de erros
+
+Ordenação com list.sort(key=...)
+
+✅ Testes do boot.dev
 bootdev run 7b6379ff-8a74-45fe-8084-a79f9680a371 -s
-100% match nos outputs esperados (e:44538 Frankenstein, etc.).
+
+✔️ 100% de correspondência com os outputs esperados
+(ex.: e: 44538 para Frankenstein)
+
+📌 Observações
+
+Este projeto marca o primeiro exercício prático do curso envolvendo:
+
+File I/O
+
+Estruturas de dados
+
+Lógica de programação aplicada
+
+Organização de código em múltiplos arquivos
