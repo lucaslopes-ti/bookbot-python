@@ -63,12 +63,11 @@ curl -o books/prideandprejudice.txt https://storage.googleapis.com/qvault-webapp
 
 Execute o programa:
 
-python3 main.py books/frankenstein.txt
-📁 Estrutura do Projeto
 bootdotdev/
 ├── main.py      # CLI, leitura do arquivo e chamadas das funções
 ├── stats.py     # get_num_words(), get_num_characters(), sort_characters()
 └── books/       # frankenstein.txt, mobydick.txt, etc.
+
 🧠 Como Foi Desenvolvido
 stats.py
 
